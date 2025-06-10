@@ -1,0 +1,9 @@
+syntax = "proto3";
+option java_package = "com.anafthdev.bentalatumblr";
+option java_generate_equals_and_hash = true;
+option java_multiple_files = true;
+
+message ProtoUserPreference {
+  bool isFirstInstall = 1;
+  double dailyGoal = 2; // Value based liquidUnitType
+}
