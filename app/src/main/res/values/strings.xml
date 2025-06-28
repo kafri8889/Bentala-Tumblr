@@ -1,3 +1,25 @@
 <resources>
     <string name="app_name">Bentala Tumblr</string>
+    <string name="home_greeting">Good Morning,</string>
+    <string name="home_day_streak">%1$s Day Streak</string>
+    <string name="home_no_history">There is no drinking history today.\nCome on, drink your first glass of water!</string>
+    <string name="drink_history_card_time">At %1$s</string>
+    <string name="nav_bar_dashboard">Home</string>
+    <string name="nav_bar_analysis">Analysis</string>
+    <string name="nav_bar_mission">Mission</string>
+    <string name="nav_bar_profile">Profile</string>
+    <string name="home_todays_history">Today\'s History</string>
+    <string name="home_temperature">Temperature</string>
+    <string name="home_battery">Battery</string>
+    <string name="home_bottle_status">Bottle Status</string>
+    <string name="home_amount">Amount</string>
+    <string name="home_invalid_volume">Invalid volume</string>
+    <string name="home_time">Time</string>
+    <string name="home_today">Today</string>
+    <string name="home_yesterday">Yesterday</string>
+    <string name="time_picker_dialog_cancel">Cancel</string>
+    <string name="time_picker_dialog_ok">OK</string>
+    <string name="home_save">Save</string>
+    <string name="delete">Delete</string>
+    <string name="edit">Edit</string>
 </resources>

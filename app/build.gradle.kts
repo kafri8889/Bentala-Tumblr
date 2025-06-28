@@ -1,5 +1,4 @@
 import com.google.devtools.ksp.gradle.KspTaskJvm
-import org.gradle.kotlin.dsl.withType
 
 plugins {
     alias(libs.plugins.android.application)
@@ -17,12 +16,12 @@ plugins {
 
 android {
     namespace = "com.anafthdev.bentalatumblr"
-    compileSdk = 35
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "com.anafthdev.bentalatumblr"
-        minSdk = 24
-        targetSdk = 35
+        minSdk = 26
+        targetSdk = 36
         versionCode = 1
         versionName = "1.0.0"
 
@@ -111,13 +110,17 @@ wire {
 
 dependencies {
 
+    implementation(project(mapOf("path" to ":datemodule")))
+
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
     implementation(platform(libs.androidx.compose.bom))
+    implementation(libs.androidx.animation)
     implementation(libs.androidx.ui)
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
+    implementation(libs.androidx.material.icons)
     implementation(libs.androidx.material3)
 
     implementation(libs.kotlinx.coroutines.core)

@@ -19,4 +19,22 @@ class DatasourceModule {
         @ApplicationContext context: Context
     ): AppDatabase = AppDatabase.getInstance(context)
 
+    @Provides
+    @Singleton
+    fun provideDrinkHistoryDao(
+        appDatabase: AppDatabase
+    ) = appDatabase.drinkHistoryDao()
+
+    @Provides
+    @Singleton
+    fun provideDrinkBottleDao(
+        appDatabase: AppDatabase
+    ) = appDatabase.drinkBottleDao()
+
+    @Provides
+    @Singleton
+    fun provideReminderDao(
+        appDatabase: AppDatabase
+    ) = appDatabase.reminderDao()
+
 }

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Bentala Tumblr</string>
+    <string name="home_greeting">Selamat Pagi,</string>
+    <string name="home_day_streak">%1$s Hari Beruntun</string>
+    <string name="home_no_history">Belum ada riwayat minum hari ini.\nYuk, minum segelas air pertamamu!</string>
+    <string name="drink_history_card_time">Pukul %1$s</string>
+    <string name="nav_bar_dashboard">Dasbor</string>
+    <string name="nav_bar_analysis">Analisis</string>
+    <string name="nav_bar_mission">Misi</string>
+    <string name="nav_bar_profile">Profil</string>
+    <string name="home_todays_history">Riwayat Hari Ini</string>
+    <string name="home_temperature">Temperatur</string>
+    <string name="home_battery">Baterai</string>
+    <string name="home_bottle_status">Status Botol</string>
+    <string name="home_amount">Jumlah</string>
+    <string name="home_invalid_volume">Volume tidak valid</string>
+    <string name="home_time">Waktu</string>
+    <string name="home_today">Hari ini</string>
+    <string name="home_yesterday">Kemarin</string>
+    <string name="time_picker_dialog_cancel">Batalkan</string>
+    <string name="time_picker_dialog_ok">Oke</string>
+    <string name="home_save">Simpan</string>
+    <string name="delete">Hapus</string>
+    <string name="edit">Edit</string>
+</resources>

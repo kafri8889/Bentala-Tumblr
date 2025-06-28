@@ -20,4 +20,5 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "Bentala Tumblr"
+include(":datemodule")
 include(":app")
