@@ -21,6 +21,12 @@ class DatasourceModule {
 
     @Provides
     @Singleton
+    fun provideMissionProgress(
+        appDatabase: AppDatabase
+    ) = appDatabase.missionProgressDao()
+
+    @Provides
+    @Singleton
     fun provideDrinkHistoryDao(
         appDatabase: AppDatabase
     ) = appDatabase.drinkHistoryDao()

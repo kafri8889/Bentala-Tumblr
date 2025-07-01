@@ -14,6 +14,8 @@ data class BentalaColorScheme(
     val blueTextColor: Color,
     val lightTextColor: Color,
     val textColor: Color,
+    val background: Color,
+    val onBackground: Color,
 )
 
 fun lightBentalaColorScheme(
@@ -25,6 +27,8 @@ fun lightBentalaColorScheme(
     blueTextColor: Color = Color(0xFF5686F5),
     lightTextColor: Color = Color(0xFF625D5D),
     textColor: Color = Color(0xFF000000),
+    background: Color = Color(0xFFF4F8FB),
+    onBackground: Color = textColor,
 ) = BentalaColorScheme(
     primary = primary,
     onPrimary = onPrimary,
@@ -33,7 +37,9 @@ fun lightBentalaColorScheme(
     lightBlueTextColor = lightBlueTextColor,
     blueTextColor = blueTextColor,
     lightTextColor = lightTextColor,
-    textColor = textColor
+    textColor = textColor,
+    background = background,
+    onBackground = onBackground,
 )
 
 val LocalBentalaColorScheme = staticCompositionLocalOf { lightBentalaColorScheme() }

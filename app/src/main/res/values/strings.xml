@@ -22,4 +22,23 @@
     <string name="home_save">Save</string>
     <string name="delete">Delete</string>
     <string name="edit">Edit</string>
+    <string name="mission_description_drink_600ml_before_12am">Drink 600ml before 12:00 AM</string>
+    <string name="mission_achievement">Achievement</string>
+    <string name="mission_achievements_progress">%1$d out of %2$d achievements unlocked</string>
+    <string name="mission_title_drink_250ml_in_a_day">First Sip</string>
+    <string name="mission_title_drink_600ml_before_12am">Fresh Before Noon</string>
+    <string name="mission_description_drink_400ml_after_8pm">Drink 400 ml after 8 pm</string>
+    <string name="mission_title_drink_400ml_after_8pm">Calm Before Bed</string>
+    <string name="mission_description_3_day_streak">Achieve the target 3 days in a row</string>
+    <string name="mission_title_3_day_streak">3 Day Streak</string>
+    <string name="mission_description_7_day_streak">Achieve the target 7 days in a row</string>
+    <string name="mission_title_7_day_streak">Healthy Week</string>
+    <string name="mission_description_1_month_streak">Achieve the target 1 month in a row</string>
+    <string name="mission_title_1_month_streak">Monthly Legend</string>
+    <string name="mission_description_drink_at_least_1_point_5_liters_a_day">Drink at least 1.5 liters a day</string>
+    <string name="mission_title_drink_at_least_1_point_5_liters_a_day">No Dry Days</string>
+    <string name="mission_description_drink_at_least_2_liters_a_day">Drink at least 2 liters a day</string>
+    <string name="mission_title_drink_at_least_2_liters_a_day">Hydration Master</string>
+    <string name="mission_description_drink_250ml_in_a_day">Drink 250 ml a day</string>
+    <string name="mission_close_sheet">Close</string>
 </resources>

@@ -5,6 +5,7 @@ import androidx.lifecycle.viewModelScope
 import com.anafthdev.bentalatumblr.data.model.db.DrinkHistory
 import com.anafthdev.bentalatumblr.data.repository.DrinkHistoryRepository
 import com.anafthdev.bentalatumblr.foundation.base.ui.BaseViewModel
+import com.anafthdev.bentalatumblr.foundation.common.mission.MissionManager
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -12,6 +13,7 @@ import javax.inject.Inject
 @HiltViewModel
 class HomeViewModel @Inject constructor(
     private val drinkHistoryRepository: DrinkHistoryRepository,
+    private val missionManager: MissionManager,
     savedStateHandle: SavedStateHandle
 ): BaseViewModel<HomeState>(
     savedStateHandle = savedStateHandle,

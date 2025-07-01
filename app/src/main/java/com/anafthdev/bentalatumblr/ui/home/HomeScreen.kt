@@ -22,6 +22,7 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -110,7 +111,6 @@ import kotlin.random.Random
 private fun HomeScreenPreview() {
     BentalaTumblrTheme {
         Scaffold(
-            containerColor = Color(0xFFF4F8FB),
             floatingActionButtonPosition = FabPosition.Center,
             floatingActionButton = {
                 FloatingActionButton(
@@ -127,7 +127,7 @@ private fun HomeScreenPreview() {
             bottomBar = {
                 BottomNavigationBar(
                     visible = true,
-                    selectedDestination = 0,
+                    selectedDestination = null,
                     onDestinationSelected = {
 
                     }
@@ -206,6 +206,7 @@ fun HomeScreen(
                     showAddRecordBottomSheet = true
                 },
                 modifier = modifier
+                    .statusBarsPadding()
                     .fillMaxSize()
             )
         }
@@ -350,7 +351,7 @@ private fun HomeScreenContent(
         }
 
         item {
-            Spacer(Modifier.height(64.dp))
+            Spacer(Modifier.height(64.dp).navigationBarsPadding())
         }
     }
 }

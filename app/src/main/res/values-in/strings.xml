@@ -23,4 +23,23 @@
     <string name="home_save">Simpan</string>
     <string name="delete">Hapus</string>
     <string name="edit">Edit</string>
+    <string name="mission_description_drink_600ml_before_12am">Minum 600 ml sebelum jam 12:00 siang</string>
+    <string name="mission_achievement">Pencapaian</string>
+    <string name="mission_achievements_progress">%1$d dari %2$d pencapaian terbuka</string>
+    <string name="mission_title_drink_250ml_in_a_day">Tegukan Pertama</string>
+    <string name="mission_title_drink_600ml_before_12am">Segar Sebelum Siang</string>
+    <string name="mission_description_drink_400ml_after_8pm">Minum 400 ml setelah jam 8 malam</string>
+    <string name="mission_title_drink_400ml_after_8pm">Tenang Sebelum Tidur</string>
+    <string name="mission_description_3_day_streak">Capai target 3 hari berturut-turut</string>
+    <string name="mission_title_3_day_streak">3 Hari Berturut-turut</string>
+    <string name="mission_description_7_day_streak">Capai target 7 hari berturut-turut</string>
+    <string name="mission_title_7_day_streak">Seminggu Sehat</string>
+    <string name="mission_description_1_month_streak">Capai target 1 bulan berturut-turut</string>
+    <string name="mission_title_1_month_streak">Legenda Bulanan</string>
+    <string name="mission_description_drink_at_least_1_point_5_liters_a_day">Minum minimal 1.5 liter dalam sehari</string>
+    <string name="mission_title_drink_at_least_1_point_5_liters_a_day">Anti Kering</string>
+    <string name="mission_description_drink_at_least_2_liters_a_day">Minum minimal 2 liter dalam sehari</string>
+    <string name="mission_title_drink_at_least_2_liters_a_day">Master Hidrasi</string>
+    <string name="mission_description_drink_250ml_in_a_day">Minum 250 ml dalam sehari</string>
+    <string name="mission_close_sheet">Tutup</string>
 </resources>
