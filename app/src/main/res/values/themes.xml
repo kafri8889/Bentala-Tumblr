@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="Theme.BentalaTumblr" parent="android:Theme.Material.Light.NoActionBar" />
+    <style name="Theme.BentalaTumblr" parent="Theme.Material3.Light.NoActionBar">
+    </style>
+
+    <style name="Theme.BentalaTumblr.SplashScreen" parent="Theme.SplashScreen">
+        <item name="colorPrimaryDark">@color/splash_screen_status_bar</item>
+        <item name="android:windowSplashscreenContent">@drawable/splash_screen_content</item>
+        <item name="postSplashScreenTheme">@style/Theme.BentalaTumblr</item>
+    </style>
+
 </resources>

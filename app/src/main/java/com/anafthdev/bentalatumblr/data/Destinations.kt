@@ -12,7 +12,7 @@ sealed class Destinations {
     data object Home: Destinations()
 
     @Serializable
-    data object Analysis: Destinations()
+    data object Statistic: Destinations()
 
     @Serializable
     data object Mission: Destinations()
@@ -20,11 +20,27 @@ sealed class Destinations {
     @Serializable
     data object Profile: Destinations()
 
-    /**
-     * Drink screen, user can add a new drink history
-     */
     @Serializable
-    data object AddRecord: Destinations()
+    data object FindTumblr: Destinations()
+
+    @Serializable
+    data object Reminder: Destinations()
+
+    @Serializable
+    data object Marketplace: Destinations()
+
+    object Auth {
+
+        @Serializable
+        data object Onboarding: Destinations()
+
+        @Serializable
+        data object Login: Destinations()
+
+        @Serializable
+        data object Register: Destinations()
+
+    }
 
     companion object {
         val bottomNavItemHome = BottomNavigationBarItem(
@@ -36,7 +52,7 @@ sealed class Destinations {
         val bottomNavItemAnalysis = BottomNavigationBarItem(
             label = R.string.nav_bar_analysis,
             icon = R.drawable.ic_analysis_outline,
-            destinations = Analysis
+            destinations = Statistic
         )
 
         val bottomNavItemMission = BottomNavigationBarItem(
