@@ -20,8 +20,8 @@ abstract class DrinkHistoryDao: BaseDao<DrinkHistory> {
 
 	@Query(
 		"SELECT * FROM drink_history WHERE " +
-			"Cast(strftime('%d%m%Y', datetime(date / 1000, 'unixepoch')) AS int) = " +
-			"Cast(strftime('%d%m%Y', datetime(:timeInMillis / 1000, 'unixepoch')) AS int)"
+				"strftime('%d%m%Y', datetime(date / 1000, 'unixepoch')) = " +
+				"strftime('%d%m%Y', datetime(:timeInMillis / 1000, 'unixepoch'))"
 	)
 	abstract fun getDaily(timeInMillis: Long): Flow<List<DrinkHistory>>
 

@@ -43,8 +43,15 @@ import androidx.navigation.compose.rememberNavController
 import com.anafthdev.bentalatumblr.data.BottomNavigationBarItem
 import com.anafthdev.bentalatumblr.data.Destinations
 import com.anafthdev.bentalatumblr.foundation.theme.BentalaTumblrTheme
+import com.anafthdev.bentalatumblr.ui.auth.login.LoginScreen
+import com.anafthdev.bentalatumblr.ui.auth.onboarding.OnboardingScreen
+import com.anafthdev.bentalatumblr.ui.find_tumblr.FindTumblrScreen
 import com.anafthdev.bentalatumblr.ui.home.HomeScreen
+import com.anafthdev.bentalatumblr.ui.marketplace.MarketplaceScreen
 import com.anafthdev.bentalatumblr.ui.mission.MissionScreen
+import com.anafthdev.bentalatumblr.ui.reminder.ReminderScreen
+import com.anafthdev.bentalatumblr.ui.setting.SettingScreen
+import com.anafthdev.bentalatumblr.ui.statistic.StatisticScreen
 
 @Composable
 @Preview(showBackground = true, showSystemUi = true)
@@ -84,7 +91,10 @@ private fun BottomNavBarPreview() {
 }
 
 @Composable
-fun BentalaApp() {
+fun BentalaApp(
+    isFirstInstall: Boolean,
+    isLoggedIn: Boolean
+) {
 
     val navController = rememberNavController()
     val currentDestination by navController.currentBackStackEntryAsState()
@@ -122,12 +132,51 @@ fun BentalaApp() {
         ) { scaffoldPadding ->
             NavHost(
                 navController = navController,
-                startDestination = Destinations.Home,
+                startDestination = when {
+                    isFirstInstall -> Destinations.Auth.Onboarding
+                    !isLoggedIn -> Destinations.Auth.Login
+                    else -> Destinations.Home
+                },
                 modifier = Modifier
                     .padding(scaffoldPadding)
             ) {
+                composable<Destinations.Auth.Onboarding> { backEntry ->
+                    OnboardingScreen(
+                        viewModel = hiltViewModel(backEntry),
+                        onGetStarted = {
+                            navController.navigate(Destinations.Auth.Login) {
+                                popUpTo(Destinations.Auth.Onboarding) {
+                                    inclusive = true
+                                }
+                            }
+                        }
+                    )
+                }
+
+                composable<Destinations.Auth.Login> { backEntry ->
+                    LoginScreen(
+                        viewModel = hiltViewModel(backEntry),
+                        onLoggedIn = {
+                            navController.navigate(Destinations.Home) {
+                                popUpTo(Destinations.Auth.Login) {
+                                    inclusive = true
+                                }
+                            }
+                        }
+                    )
+                }
+
                 composable<Destinations.Home> { backEntry ->
                     HomeScreen(
+                        viewModel = hiltViewModel(backEntry),
+                        onNavigateTo = { dest ->
+                            navController.navigate(dest)
+                        }
+                    )
+                }
+
+                composable<Destinations.Statistic> { backEntry ->
+                    StatisticScreen(
                         viewModel = hiltViewModel(backEntry)
                     )
                 }
@@ -135,6 +184,36 @@ fun BentalaApp() {
                 composable<Destinations.Mission> { backEntry ->
                     MissionScreen(
                         viewModel = hiltViewModel(backEntry)
+                    )
+                }
+
+                composable<Destinations.Profile> { backEntry ->
+                    SettingScreen(
+                        viewModel = hiltViewModel(backEntry),
+                        onNavigateTo = { dest ->
+                            navController.navigate(dest)
+                        }
+                    )
+                }
+
+                composable<Destinations.FindTumblr> { backEntry ->
+                    FindTumblrScreen(
+                        viewModel = hiltViewModel(backEntry),
+                        onNavigationIconClick = navController::navigateUp
+                    )
+                }
+
+                composable<Destinations.Reminder> { backEntry ->
+                    ReminderScreen(
+                        viewModel = hiltViewModel(backEntry),
+                        onNavigationIconClick = navController::navigateUp
+                    )
+                }
+
+                composable<Destinations.Marketplace> { backEntry ->
+                    MarketplaceScreen(
+                        viewModel = hiltViewModel(backEntry),
+                        onNavigationIconClick = navController::navigateUp
                     )
                 }
             }

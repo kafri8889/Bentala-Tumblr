@@ -113,6 +113,7 @@ dependencies {
     implementation(project(mapOf("path" to ":datemodule")))
 
     implementation(libs.androidx.core.ktx)
+    implementation(libs.androidx.core.splashscreen)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
     implementation(platform(libs.androidx.compose.bom))
@@ -122,10 +123,12 @@ dependencies {
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material.icons)
     implementation(libs.androidx.material3)
+    implementation("com.google.android.material:material:1.12.0")
 
     implementation(libs.kotlinx.coroutines.core)
     implementation(libs.kotlinx.coroutines.android)
     implementation(libs.kotlinx.serialization.json)
+    implementation(libs.kotlinx.immutable.collections)
     kapt(libs.kotlinx.metadata.jvm)
 
     implementation(libs.androidx.navigation.compose)
@@ -173,8 +176,12 @@ dependencies {
     // Other
     implementation(libs.gson)
     implementation(libs.timber)
-    implementation("com.squareup.wire:wire-runtime:4.9.2")
+    implementation(libs.wire.runtime)
+    implementation(libs.airbnb.lottie.compose)
 //    implementation("com.github.AppDevNext:AndroidChart:3.1.0.21")
+
+    implementation("mx.platacard:compose-pager-indicator:0.0.8")
+    implementation("com.maxkeppeler.sheets-compose-dialogs:calendar:1.3.0")
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

@@ -2,12 +2,15 @@ package com.anafthdev.bentalatumblr.foundation.component
 
 import android.icu.text.SimpleDateFormat
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.Delete
 import androidx.compose.material.icons.rounded.Edit
@@ -27,8 +30,8 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.painter.ColorPainter
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -39,7 +42,7 @@ import com.anafthdev.bentalatumblr.foundation.theme.BentalaTumblrTheme
 import java.util.Locale
 
 @Composable
-@Preview
+@Preview(showSystemUi = false, showBackground = true)
 private fun DrinkHistoryItemPreview() {
     BentalaTumblrTheme {
         DrinkHistoryItem(
@@ -67,7 +70,7 @@ fun DrinkHistoryItem(
     Card(
         modifier = modifier,
         colors = CardDefaults.cardColors(
-            containerColor = Color.White
+            containerColor = MaterialTheme.colorScheme.primaryContainer.copy(alpha = 0.32f)
         )
     ) {
         Row(
@@ -77,26 +80,65 @@ fun DrinkHistoryItem(
                 .padding(16.dp)
                 .fillMaxWidth()
         ) {
-            Image(
-                painter = ColorPainter(Color.LightGray),
-                contentDescription = null,
+            Box(
                 modifier = Modifier
-                    .size(32.dp)
-            )
+                    .clip(RoundedCornerShape(8.dp))
+                    .background(MaterialTheme.colorScheme.primaryContainer)
+            ) {
+                Image(
+                    painter = painterResource(R.drawable.water_drop),
+                    contentDescription = null,
+                    modifier = Modifier
+                        .padding(8.dp)
+                        .size(24.dp)
+                )
+            }
 
             Column(
+                verticalArrangement = Arrangement.spacedBy(4.dp),
                 modifier = Modifier
                     .weight(1f)
             ) {
                 Text(
-                    text = "${history.bottle.volume.toInt()}ml",
+                    text = "Water",
                     style = MaterialTheme.typography.labelLarge
                 )
 
-                Text(
-                    text = stringResource(R.string.drink_history_card_time, time),
-                    style = MaterialTheme.typography.bodyMedium
-                )
+                Row(
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.spacedBy(4.dp),
+                    modifier = Modifier
+                        .fillMaxWidth()
+                ) {
+                    Icon(
+                        painter = painterResource(R.drawable.ic_water_drop),
+                        contentDescription = null,
+                        modifier = Modifier
+                            .size(12.dp)
+                    )
+
+                    Text(
+                        text = "${history.bottle.volume.toInt()}ml",
+                        style = MaterialTheme.typography.bodyMedium
+                    )
+
+                    Text(
+                        text = "•",
+                        style = MaterialTheme.typography.bodyMedium
+                    )
+
+                    Icon(
+                        painter = painterResource(R.drawable.ic_clock),
+                        contentDescription = null,
+                        modifier = Modifier
+                            .size(12.dp)
+                    )
+
+                    Text(
+                        text = time,
+                        style = MaterialTheme.typography.bodyMedium
+                    )
+                }
             }
 
             IconButton(

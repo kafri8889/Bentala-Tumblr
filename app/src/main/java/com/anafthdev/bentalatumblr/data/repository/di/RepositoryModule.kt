@@ -2,6 +2,7 @@ package com.anafthdev.bentalatumblr.data.repository.di
 
 import androidx.datastore.core.DataStore
 import com.anafthdev.bentalatumblr.ProtoUserPreference
+import com.anafthdev.bentalatumblr.ProtoUserProfile
 import com.anafthdev.bentalatumblr.data.datasource.local.dao.DrinkBottleDao
 import com.anafthdev.bentalatumblr.data.datasource.local.dao.DrinkHistoryDao
 import com.anafthdev.bentalatumblr.data.datasource.local.dao.MissionProgressDao
@@ -11,11 +12,13 @@ import com.anafthdev.bentalatumblr.data.repository.DrinkHistoryRepository
 import com.anafthdev.bentalatumblr.data.repository.MissionProgressRepository
 import com.anafthdev.bentalatumblr.data.repository.ReminderRepository
 import com.anafthdev.bentalatumblr.data.repository.UserPreferenceRepository
+import com.anafthdev.bentalatumblr.data.repository.UserProfileRepository
 import com.anafthdev.bentalatumblr.data.repository.impl.DrinkBottleRepositoryImpl
 import com.anafthdev.bentalatumblr.data.repository.impl.DrinkHistoryRepositoryImpl
 import com.anafthdev.bentalatumblr.data.repository.impl.MissionProgressRepositoryImpl
 import com.anafthdev.bentalatumblr.data.repository.impl.ReminderRepositoryImpl
 import com.anafthdev.bentalatumblr.data.repository.impl.UserPreferenceRepositoryImpl
+import com.anafthdev.bentalatumblr.data.repository.impl.UserProfileRepositoryImpl
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -25,6 +28,12 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 class RepositoryModule {
+
+    @Provides
+    @Singleton
+    fun provideUserProfileRepository(
+        userProfileDatastore: DataStore<ProtoUserProfile>
+    ): UserProfileRepository = UserProfileRepositoryImpl(userProfileDatastore)
 
     @Provides
     @Singleton

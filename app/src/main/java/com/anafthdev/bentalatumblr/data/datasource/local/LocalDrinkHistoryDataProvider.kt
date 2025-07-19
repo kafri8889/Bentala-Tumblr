@@ -114,6 +114,55 @@ object LocalDrinkHistoryDataProvider {
 		history11,
 	)
 
+	fun generateDummyDrinkData(): List<DrinkHistory> {
+		val histories = mutableListOf<DrinkHistory>()
+		var historyId = 0
+
+		val calendar = Calendar.getInstance()
+		val currentYear = calendar.get(Calendar.YEAR)
+
+		// 1. Loop pertama: Iterasi untuk setiap bulan
+		for (month in 0..11) { // 0=Januari, 11=Desember
+			calendar.set(Calendar.YEAR, currentYear)
+			calendar.set(Calendar.MONTH, month)
+
+			val maxDayInMonth = calendar.getActualMaximum(Calendar.DAY_OF_MONTH)
+
+			// 2. Loop kedua: Iterasi untuk SETIAP HARI di bulan tersebut
+			for (day in 1..maxDayInMonth) { // Misal: 1..31 untuk Januari, 1..28 untuk Februari
+				calendar.set(Calendar.DAY_OF_MONTH, day)
+
+				val goalToday = (1200..1600).random().toDouble()
+				val entriesPerDay = (4..12).random()
+
+				repeat(entriesPerDay) {
+					val entryCalendar = calendar.clone() as Calendar
+
+					entryCalendar.set(Calendar.HOUR_OF_DAY, (0..23).random())
+					entryCalendar.set(Calendar.MINUTE, (0..59).random())
+					entryCalendar.set(Calendar.SECOND, (0..59).random())
+
+					val bottle = LocalDrinkBottleDataProvider.customBottle.copy(
+						volume = 80.rangeTo(200).random().toDouble()
+					)
+
+					histories.add(
+						DrinkHistory(
+							id = historyId++,
+							date = entryCalendar.timeInMillis,
+							goal = goalToday,
+							bottle = bottle,
+							trackingMethod = TrackingMethod.entries.random()
+						)
+					)
+				}
+			}
+		}
+
+		return histories.sortedBy { it.date }
+	}
+
+
 	/**
 	 * Function to add histories. Each month contains two history
 	 * @param year the year

@@ -40,19 +40,31 @@ abstract class BaseViewModel<STATE: Parcelable>(
 
 	val state: StateFlow<STATE> = savedStateHandle.getStateFlow(KEY_STATE, defaultState)
 
+//	/**
+//	 * Function yang digunakan untuk memperbarui state dari [savedStateHandle]
+//	 *
+//	 * @param triggerStateChange invoke [OnStateUpdateListener.onStateUpdated] if `true`, `false` otherwise
+//	 * @param newState parameter ini akan memberikan state saat ini sebagai `this`.
+//	 */
+//	protected fun updateState(triggerStateChange: Boolean = true, newState: STATE.() -> STATE) {
+//		// get current state
+//		savedStateHandle.get<STATE>(KEY_STATE)?.let { state ->
+//			// simpan state baru ke savedStateHandle
+//			val mNewState = newState(state)
+//			savedStateHandle[KEY_STATE] = mNewState
+//			if (triggerStateChange) onStateUpdateListener.onStateUpdated(state, mNewState)
+//		}
+//	}
+
 	/**
-	 * Function yang digunakan untuk memperbarui state dari [savedStateHandle]
-	 *
-	 * @param triggerStateChange invoke [OnStateUpdateListener.onStateUpdated] if `true`, `false` otherwise
 	 * @param newState parameter ini akan memberikan state saat ini sebagai `this`.
 	 */
-	protected fun updateState(triggerStateChange: Boolean = true, newState: STATE.() -> STATE) {
+	protected fun updateState(newState: STATE.() -> STATE) {
 		// get current state
 		savedStateHandle.get<STATE>(KEY_STATE)?.let { state ->
 			// simpan state baru ke savedStateHandle
 			val mNewState = newState(state)
 			savedStateHandle[KEY_STATE] = mNewState
-			if (triggerStateChange) onStateUpdateListener.onStateUpdated(state, mNewState)
 		}
 	}
 
